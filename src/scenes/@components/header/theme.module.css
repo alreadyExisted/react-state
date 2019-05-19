@@ -1,0 +1,28 @@
+.header {
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: rgba(45, 45, 45, 0.98);
+}
+
+.list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.list li:not(:last-child) .item {
+  margin-right: 2rem;
+}
+
+.item {
+  color: #fff;
+  text-decoration: none;
+}
+
+.item.active {
+  opacity: 0.65;
+}
