@@ -13,7 +13,7 @@ export const Scenes = () => (
       <Route path="/redux-handler" component={ReduxHandlerScene} />
       <Route path="/redux-observables" render={() => 2} />
       <Route path="/redux-saga" render={() => 3} />
-      <Route path="/redux-effector" render={() => 4} />
+      <Route path="/effector" render={() => 4} />
       <Route path="/mobx" render={() => 5} />
     </Switch>
   </Layout>
