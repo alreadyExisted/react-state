@@ -29,7 +29,7 @@ const shouldFetchRepositories = (state: RootStore) => {
 
   if (loading) return false
 
-  return true
+  return false
 }
 
 export const fetchRepositoriesIfNeeded = () => (
