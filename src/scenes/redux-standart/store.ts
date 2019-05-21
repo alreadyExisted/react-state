@@ -9,5 +9,7 @@ const composeEnhancers =
       })
     : compose
 
-export const configureStore = () =>
-  createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+export const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+)
