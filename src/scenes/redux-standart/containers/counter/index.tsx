@@ -15,8 +15,8 @@ const CounterContainerComponent: FC<ComponentProps> = ({
 }) => (
   <Counter
     counter={counter}
-    incValue={() => dispatch(incCounter)}
-    decValue={() => dispatch(decCounter)}
+    incValue={() => dispatch(incCounter())}
+    decValue={() => dispatch(decCounter())}
   />
 )
 

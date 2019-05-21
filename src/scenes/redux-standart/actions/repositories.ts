@@ -1,25 +1,35 @@
-import { Dispatch } from 'redux'
+import { Dispatch, AnyAction } from 'redux'
 import { RootStore } from 'store'
 import { api } from 'api'
 import { RepositoryDTO } from 'api/github'
+import { ThunkAction } from 'redux-thunk'
 
-export const REQUEST_REPOSITORIES = 'REQUEST_REPOSITORIES'
-export const RECEIVE_REPOSITORIES = 'RECEIVE_REPOSITORIES'
+export const START_FETCH_REPOSITORIES = 'START_FETCH_REPOSITORIES'
+export const SUCCESS_FETCH_REPOSITORIES = 'SUCCESS_FETCH_REPOSITORIES'
+export const FAIL_FETCH_REPOSITORIES = 'FAIL_FETCH_REPOSITORIES'
 
-export const requestRepositories = {
-  type: REQUEST_REPOSITORIES
-}
+export const startFetchRepositories = () => ({
+  type: START_FETCH_REPOSITORIES
+})
 
-export const receiveRepositories = (payload: { items: RepositoryDTO[] }) => ({
-  type: RECEIVE_REPOSITORIES,
+export const successFetchRepositories = (payload: RepositoryDTO[]) => ({
+  type: SUCCESS_FETCH_REPOSITORIES,
   payload
 })
 
+export const failFetchRepositories = (message: string) => ({
+  type: FAIL_FETCH_REPOSITORIES,
+  payload: message
+})
+
 const fetchRepositories = () => async (dispatch: Dispatch) => {
-  dispatch(requestRepositories)
-  const { items } = await api.github.repositories()
-  dispatch(receiveRepositories({ items }))
-  return items
+  dispatch(startFetchRepositories())
+  try {
+    const { items } = await api.github.repositories()
+    dispatch(successFetchRepositories(items))
+  } catch (e) {
+    dispatch(failFetchRepositories(e.message))
+  }
 }
 
 const shouldFetchRepositories = (state: RootStore) => {
@@ -32,10 +42,12 @@ const shouldFetchRepositories = (state: RootStore) => {
   return false
 }
 
-export const fetchRepositoriesIfNeeded = () => (
-  dispatch: any,
-  getState: () => RootStore
-) => {
+export const fetchRepositoriesIfNeeded = (): ThunkAction<
+  Promise<void> | undefined,
+  RootStore,
+  {},
+  AnyAction
+> => (dispatch, getState) => {
   if (shouldFetchRepositories(getState())) {
     return dispatch(fetchRepositories())
   }

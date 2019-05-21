@@ -1,8 +1,9 @@
 import { AnyAction } from 'redux'
 import { RepositoriesStore } from 'store'
 import {
-  RECEIVE_REPOSITORIES,
-  REQUEST_REPOSITORIES
+  START_FETCH_REPOSITORIES,
+  SUCCESS_FETCH_REPOSITORIES,
+  FAIL_FETCH_REPOSITORIES
 } from 'scenes/redux-standart/actions/repositories'
 
 export const repositoriesReducer = (
@@ -10,16 +11,22 @@ export const repositoriesReducer = (
   action: AnyAction
 ): RepositoriesStore => {
   switch (action.type) {
-    case REQUEST_REPOSITORIES:
+    case START_FETCH_REPOSITORIES:
       return {
         ...state,
         loading: true
       }
-    case RECEIVE_REPOSITORIES:
+    case SUCCESS_FETCH_REPOSITORIES:
       return {
         ...state,
         loading: false,
-        items: action.payload.items
+        items: action.payload
+      }
+    case FAIL_FETCH_REPOSITORIES:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       }
     default:
       return state

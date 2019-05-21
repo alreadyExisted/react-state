@@ -18,6 +18,7 @@ export interface CounterStore {
 export interface RepositoriesStore {
   items?: RepositoryDTO[]
   loading?: boolean
+  error?: string
 }
 
 export interface RootStore {
