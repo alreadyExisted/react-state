@@ -4,7 +4,7 @@ export interface RepositoryDTO {
   name: string
 }
 
-interface RepositoriesResponseDTO {
+export interface RepositoriesResponseDTO {
   items: RepositoryDTO[]
 }
 
