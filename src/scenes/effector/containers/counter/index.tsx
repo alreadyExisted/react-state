@@ -1,15 +1,15 @@
 import React, { FC } from 'react'
 import { Counter } from 'scenes/@components'
-import { CounterStore, incCounter, decCounter } from './store'
+import { CounterStoreConsumer, incCounter, decCounter } from './store'
 
 export const CounterContainer: FC = () => (
-  <CounterStore>
-    {state => (
+  <CounterStoreConsumer>
+    {({ counter }) => (
       <Counter
-        counter={state.counter}
+        counter={counter}
         incValue={() => incCounter()}
         decValue={() => decCounter()}
       />
     )}
-  </CounterStore>
+  </CounterStoreConsumer>
 )

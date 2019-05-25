@@ -8,8 +8,8 @@ const counter = createStore(0)
   .on(incCounter, state => state + 1)
   .on(decCounter, state => state - 1)
 
-const store = createStoreObject({
+export const counterStore = createStoreObject({
   counter
 })
 
-export const CounterStore = createStoreConsumer(store)
+export const CounterStoreConsumer = createStoreConsumer(counterStore)
