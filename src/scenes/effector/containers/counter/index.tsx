@@ -1,15 +1,15 @@
-import React, { FC } from 'react'
+import React from 'react'
+import { createComponent } from 'effector-react'
 import { Counter } from 'scenes/@components'
-import { CounterStoreConsumer, incCounter, decCounter } from './store'
+import { incCounter, decCounter, counterStore } from './store'
 
-export const CounterContainer: FC = () => (
-  <CounterStoreConsumer>
-    {({ counter }) => (
-      <Counter
-        counter={counter}
-        incValue={() => incCounter()}
-        decValue={() => decCounter()}
-      />
-    )}
-  </CounterStoreConsumer>
+export const CounterContainer = createComponent(
+  counterStore,
+  (_, { counter }) => (
+    <Counter
+      counter={counter}
+      incValue={() => incCounter()}
+      decValue={() => decCounter()}
+    />
+  )
 )
