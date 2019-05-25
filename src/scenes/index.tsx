@@ -4,6 +4,7 @@ import { Layout, Header } from 'scenes/@components'
 import { ReduxStandartScene } from 'scenes/redux-standart'
 import { ReduxHandlerScene } from 'scenes/redux-handler'
 import { ReduxSagaScene } from 'scenes/redux-saga'
+import { EffectoreScene } from 'scenes/effector'
 
 export const Scenes = () => (
   <Layout>
@@ -14,7 +15,7 @@ export const Scenes = () => (
       <Route path="/redux-handler" component={ReduxHandlerScene} />
       <Route path="/redux-observables" render={() => 2} />
       <Route path="/redux-saga" component={ReduxSagaScene} />
-      <Route path="/effector" render={() => 4} />
+      <Route path="/effector" component={EffectoreScene} />
       <Route path="/mobx" render={() => 5} />
     </Switch>
   </Layout>

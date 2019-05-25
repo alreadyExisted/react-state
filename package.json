@@ -10,6 +10,8 @@
     "@types/react-dom": "16.8.4",
     "@types/react-redux": "^7.0.9",
     "@types/react-router-dom": "^4.3.3",
+    "effector": "^0.18.10",
+    "effector-react": "^0.18.10",
     "env-cmd": "^9.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
