@@ -1,15 +1,5 @@
-import {
-  connect as _connect,
-  InferableComponentEnhancer,
-  InferableComponentEnhancerWithProps,
-  MapStateToPropsParam
-} from 'react-redux'
-import { Dispatch as _Dispatch } from 'redux'
+import { create } from 'redux-react-hook'
 import { RepositoryDTO } from 'api/github'
-
-// -----------------------------
-// --- REDUX CONNECT HELPERS ---
-// -----------------------------
 
 export interface CounterStore {
   value: number
@@ -26,19 +16,8 @@ export interface RootStore {
   repositories: RepositoriesStore
 }
 
-export type Dispatch = _Dispatch
-
-export interface DispatchProps {
-  dispatch: Dispatch
-}
-
-interface Connect {
-  (): InferableComponentEnhancer<DispatchProps>
-
-  <TStateProps, TOwnProps = {}>(
-    mapStateToProps: MapStateToPropsParam<TStateProps, TOwnProps, RootStore>
-  ): InferableComponentEnhancerWithProps<TStateProps & DispatchProps, TOwnProps>
-}
-
-export const connect: Connect = ((mapStateToProps: any) =>
-  _connect(mapStateToProps)) as any
+export const { StoreContext, useDispatch, useMappedState } = create<
+  RootStore,
+  any,
+  any
+>()

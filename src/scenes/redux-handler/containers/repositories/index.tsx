@@ -1,18 +1,16 @@
-import React, { FC, useEffect } from 'react'
-import { DispatchProps, RepositoriesStore, connect } from 'store'
+import React, { useEffect, useCallback } from 'react'
+import { useDispatch, useMappedState, RootStore } from 'store'
 import { RepositoriesList } from 'scenes/@components'
 import { fetchRepositories } from 'scenes/redux-handler/containers/repositories/store'
 
-interface StateProps {
-  repositories: RepositoriesStore
-}
+export const RepositoriesListContainer = () => {
+  const mapState = useCallback(
+    ({ repositories: { items, loading } }: RootStore) => ({ items, loading }),
+    []
+  )
+  const { items, loading } = useMappedState(mapState)
+  const dispatch = useDispatch()
 
-type ComponentProps = StateProps & DispatchProps
-
-const RepositoriesListContainerComponent: FC<ComponentProps> = ({
-  repositories: { items, loading },
-  dispatch
-}) => {
   useEffect(() => {
     dispatch(fetchRepositories())
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -20,9 +18,3 @@ const RepositoriesListContainerComponent: FC<ComponentProps> = ({
 
   return <RepositoriesList items={items} loading={loading} />
 }
-
-export const RepositoriesListContainer = connect<StateProps>(
-  ({ repositories }) => ({
-    repositories
-  })
-)(RepositoriesListContainerComponent)

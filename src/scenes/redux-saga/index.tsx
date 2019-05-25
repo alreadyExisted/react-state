@@ -1,14 +1,14 @@
 import React from 'react'
-import { Provider } from 'react-redux'
+import { StoreContext } from 'store'
+import { store } from 'scenes/redux-saga/store'
 import {
   CounterContainer,
   RepositoriesListContainer
 } from 'scenes/redux-saga/containers'
-import { store } from 'scenes/redux-saga/store'
 
 export const ReduxSagaScene = () => (
-  <Provider store={store}>
+  <StoreContext.Provider value={store}>
     <CounterContainer />
     <RepositoriesListContainer />
-  </Provider>
+  </StoreContext.Provider>
 )

@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { DispatchProps, connect } from 'store'
+import React, { useCallback } from 'react'
+import { RootStore, useMappedState, useDispatch } from 'store'
 import { Counter } from 'scenes/@components'
 import {
   incCounter,
@@ -7,24 +7,20 @@ import {
   incCounterAsync
 } from 'scenes/redux-saga/actions/counter'
 
-interface StateProps {
-  counter: number
+export const CounterContainer = () => {
+  const mapState = useCallback(
+    (state: RootStore) => ({ counter: state.counter.value }),
+    []
+  )
+  const { counter } = useMappedState(mapState)
+  const dispatch = useDispatch()
+
+  return (
+    <Counter
+      counter={counter}
+      incValue={() => dispatch(incCounter())}
+      incValueAsync={() => dispatch(incCounterAsync())}
+      decValue={() => dispatch(decCounter())}
+    />
+  )
 }
-
-type ComponentProps = StateProps & DispatchProps
-
-const CounterContainerComponent: FC<ComponentProps> = ({
-  counter,
-  dispatch
-}) => (
-  <Counter
-    counter={counter}
-    incValue={() => dispatch(incCounter())}
-    incValueAsync={() => dispatch(incCounterAsync())}
-    decValue={() => dispatch(decCounter())}
-  />
-)
-
-export const CounterContainer = connect<StateProps>(({ counter }) => ({
-  counter: counter.value
-}))(CounterContainerComponent)

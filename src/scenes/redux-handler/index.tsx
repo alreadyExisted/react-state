@@ -1,5 +1,5 @@
 import React from 'react'
-import { Provider } from 'react-redux'
+import { StoreContext } from 'store'
 import { store } from 'scenes/redux-handler/store'
 import {
   CounterContainer,
@@ -7,8 +7,8 @@ import {
 } from 'scenes/redux-handler/containers'
 
 export const ReduxHandlerScene = () => (
-  <Provider store={store}>
+  <StoreContext.Provider value={store}>
     <CounterContainer />
     <RepositoriesListContainer />
-  </Provider>
+  </StoreContext.Provider>
 )
