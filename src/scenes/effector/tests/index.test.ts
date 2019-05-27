@@ -3,7 +3,7 @@ import {
   counterStore
 } from 'scenes/effector/containers/counter/store'
 import {
-  repositoriesstore,
+  repositoriesStore,
   fetchRepositories
 } from 'scenes/effector/containers/repositories/store'
 
@@ -15,8 +15,8 @@ describe('effector', () => {
   })
 
   it('async action', async () => {
-    expect(repositoriesstore.getState().repositories.items).toBeFalsy()
+    expect(repositoriesStore.getState().repositories.items).toBeFalsy()
     await fetchRepositories({})
-    expect(repositoriesstore.getState().repositories.items).toBeTruthy()
+    expect(repositoriesStore.getState().repositories.items).toBeTruthy()
   })
 })

@@ -21,8 +21,8 @@ const repositories = createStore<RepositoriesStore>({})
     error: payload.error.message
   }))
 
-export const repositoriesstore = createStoreObject({
+export const repositoriesStore = createStoreObject({
   repositories
 })
 
-export const RepositoriesStoreConsumer = createStoreConsumer(repositoriesstore)
+export const RepositoriesStoreConsumer = createStoreConsumer(repositoriesStore)
