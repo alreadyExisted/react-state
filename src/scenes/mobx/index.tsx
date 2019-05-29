@@ -1,14 +1,22 @@
 import React from 'react'
-import { CounterContainer } from 'scenes/mobx/containers/counter'
-import { counterStore } from 'scenes/mobx/containers/counter/store'
 import { Provider } from 'mobx-react'
+import {
+  CounterContainer,
+  RepositoriesContainer,
+  counterStore,
+  repositoriesStore
+} from 'scenes/mobx/containers'
 
 const rootStore = {
-  counter: counterStore
+  counter: counterStore,
+  repositories: repositoriesStore
 }
 
 export const MobxScene = () => (
   <Provider {...rootStore}>
-    <CounterContainer />
+    <>
+      <CounterContainer />
+      <RepositoriesContainer />
+    </>
   </Provider>
 )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
 import { Counter } from 'scenes/@components'
-import { CounterStore } from './store'
+import { CounterStore } from 'scenes/mobx/containers/counter/store'
 
 interface StateProps {
   counter?: CounterStore
