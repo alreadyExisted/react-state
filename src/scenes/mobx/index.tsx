@@ -9,6 +9,6 @@ const rootStore = {
 
 export const MobxScene = () => (
   <Provider {...rootStore}>
-    <CounterContainer counterStore={counterStore} />
+    <CounterContainer />
   </Provider>
 )
