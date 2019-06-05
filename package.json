@@ -21,11 +21,11 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
-    "redux-handler": "^0.13.0",
+    "redux-handler": "^0.13.2",
     "redux-react-hook": "^3.3.2",
     "redux-saga": "^1.0.2",
     "redux-thunk": "^2.3.0",
-    "rxjs": "^6.5.2",
+    "rxjs": "6.5.1",
     "typescript": "3.4.5"
   },
   "scripts": {

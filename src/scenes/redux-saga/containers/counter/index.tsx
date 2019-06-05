@@ -14,13 +14,18 @@ export const CounterContainer = () => {
   )
   const { counter } = useMappedState(mapState)
   const dispatch = useDispatch()
+  const incValue = useCallback(() => dispatch(incCounter()), [dispatch])
+  const incValueAsync = useCallback(() => dispatch(incCounterAsync()), [
+    dispatch
+  ])
+  const decValue = useCallback(() => dispatch(decCounter()), [dispatch])
 
   return (
     <Counter
       counter={counter}
-      incValue={() => dispatch(incCounter())}
-      incValueAsync={() => dispatch(incCounterAsync())}
-      decValue={() => dispatch(decCounter())}
+      incValue={incValue}
+      incValueAsync={incValueAsync}
+      decValue={decValue}
     />
   )
 }

@@ -13,8 +13,7 @@ export const RepositoriesListContainer = () => {
 
   useEffect(() => {
     dispatch(fetchRepositories())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
 
   return <RepositoriesList items={items} loading={loading} />
 }

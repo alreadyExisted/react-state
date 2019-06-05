@@ -1,6 +1,9 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
+import { createStore, applyMiddleware, compose, Action } from 'redux'
+import thunk, { ThunkDispatch } from 'redux-thunk'
 import { rootReducer } from 'scenes/redux-standart/reducers'
+import { RootStore } from 'store'
+
+export type MyThunkDispatch = ThunkDispatch<RootStore, undefined, Action>
 
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

@@ -8320,10 +8320,10 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
-redux-handler@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/redux-handler/-/redux-handler-0.13.0.tgz#27cfcc1aa681dca1403fba40ed2f52e95c3a1b0e"
-  integrity sha512-wkRTAQYk6mWnO/Z7Yp9AH9e5cLe4Y5fIwaJfynPCQ0FL9efBlxf+tmHrwl8X/1L1UFzUMNpaupLujrJjfSQFPg==
+redux-handler@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/redux-handler/-/redux-handler-0.13.2.tgz#ab4bb8d01dc5c8161155418aa156bdd291ec5142"
+  integrity sha512-f1+MEKzZoByAKNAR6V3c3jiVwsSQLL2zGyCMIyaZlRYnKHC2J79rnaEVWx9Dr65whkKRIfYe3G/xr9AWRaS5ww==
   optionalDependencies:
     rxjs "^6.4.0"
 
@@ -8643,17 +8643,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@^6.4.0:
+rxjs@6.5.1, rxjs@^6.4.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.1.tgz#f7a005a9386361921b8524f38f54cbf80e5d08f4"
   integrity sha512-y0j31WJc83wPu31vS1VlAFW5JGrnGC+j+TtGAa1fRQphy48+fDYiDmX8tjGloToEsMkxnouOg/1IzXGKkJnZMg==
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@^6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.2.tgz#2e35ce815cd46d84d02a209fb4e5921e051dbec7"
-  integrity sha512-HUb7j3kvb7p7eCUHE3FqjoDsC1xfZQ4AHFWfTKSpZ+sAhhz5X1WX0ZuUqWbzB2QhSLp3DoLUG+hMdEDKqWo2Zg==
   dependencies:
     tslib "^1.9.0"
 

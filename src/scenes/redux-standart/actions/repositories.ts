@@ -1,8 +1,8 @@
-import { Dispatch, AnyAction } from 'redux'
+import { Dispatch } from 'redux'
 import { RootStore } from 'store'
 import { api } from 'api'
 import { RepositoryDTO } from 'api/github'
-import { ThunkAction } from 'redux-thunk'
+import { MyThunkDispatch } from 'scenes/redux-standart/store'
 
 export const START_FETCH_REPOSITORIES = 'START_FETCH_REPOSITORIES'
 export const SUCCESS_FETCH_REPOSITORIES = 'SUCCESS_FETCH_REPOSITORIES'
@@ -42,12 +42,9 @@ const shouldFetchRepositories = (state: RootStore) => {
   return false
 }
 
-export const fetchRepositoriesIfNeeded = (): ThunkAction<
-  Promise<void> | undefined,
-  RootStore,
-  {},
-  AnyAction
-> => (dispatch, getState) => {
+export const fetchRepositoriesIfNeeded = () => getThunk
+
+async function getThunk(dispatch: MyThunkDispatch, getState: () => RootStore) {
   if (shouldFetchRepositories(getState())) {
     return dispatch(fetchRepositories())
   }
