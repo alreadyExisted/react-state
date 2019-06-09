@@ -1,15 +1,19 @@
-const apiProvider = {
-  GITHUB: 1
+enum ApiProvider {
+  Github
 }
 
 const urls = {
-  [apiProvider.GITHUB]: process.env.REACT_APP_API_GITHUB
+  [ApiProvider.Github]: process.env.REACT_APP_API_GITHUB
+}
+
+interface ApiOpts {
+  provider?: ApiProvider
 }
 
 export async function callApi<T>(
   url: string,
-  { provider }: { provider: number } = {} as any
-) {
-  let baseUrl = urls[provider ? provider : apiProvider.GITHUB]
-  return (await (await fetch(`${baseUrl}${url}`)).json()) as Promise<T>
+  { provider }: ApiOpts = {} as any
+): Promise<T> {
+  let baseUrl = urls[provider ? provider : ApiProvider.Github]
+  return await (await fetch(`${baseUrl}${url}`)).json()
 }

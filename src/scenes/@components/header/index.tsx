@@ -14,7 +14,7 @@ export const Header = () => (
       <ul className={theme.list}>
         <Item to="/redux-standart" children="Redux Standart" />
         <Item to="/redux-handler" children="Redux Handler" />
-        <Item to="/redux-observables" children="Redux Observables" />
+        <Item to="/redux-observable" children="Redux Observable" />
         <Item to="/redux-saga" children="Redux Saga" />
         <Item to="/effector" children="Effector" />
         <Item to="/mobx" children="MobX" />
