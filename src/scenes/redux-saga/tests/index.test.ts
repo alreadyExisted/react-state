@@ -5,7 +5,7 @@ import {
   startFetchRepositories,
   successFetchRepositories,
   failFetchRepositories
-} from 'scenes/redux-standart/actions/repositories'
+} from 'scenes/redux-classic/actions/repositories'
 import { api } from 'api'
 
 describe('redux-saga', () => {

@@ -1,14 +1,21 @@
-import { createStore, createStoreObject, createEffect } from 'effector'
+import { createStore, createStoreObject, createEffect, Effect } from 'effector'
 import { createStoreConsumer } from 'effector-react'
 import { api } from 'api'
 import { RepositoriesStore } from 'store'
 import { RepositoriesResponseDTO } from 'api/github'
 
-export const fetchRepositories = createEffect<
+type FetchRepositoriesFn = Effect<
   {},
   RepositoriesResponseDTO,
   { message: string }
->('fetch repositories').use(_ => api.github.repositories())
+>
+
+export const fetchRepositories: FetchRepositoriesFn = createEffect(
+  'fetch repositories',
+  {
+    handler: () => api.github.repositories()
+  }
+)
 
 const repositories = createStore<RepositoriesStore>({})
   .on(fetchRepositories.done, (_, payload) => ({

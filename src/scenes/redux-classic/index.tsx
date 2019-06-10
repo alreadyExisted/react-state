@@ -1,12 +1,12 @@
 import React from 'react'
 import { StoreContext } from 'store'
-import { store } from 'scenes/redux-standart/store'
+import { store } from 'scenes/redux-classic/store'
 import {
   CounterContainer,
   RepositoriesListContainer
-} from 'scenes/redux-standart/containers'
+} from 'scenes/redux-classic/containers'
 
-export const ReduxStandartScene = () => (
+export const ReduxClassicScene = () => (
   <StoreContext.Provider value={store}>
     <CounterContainer />
     <RepositoriesListContainer />

@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react'
 import { useDispatch, useMappedState, RootStore } from 'store'
 import { RepositoriesList } from 'scenes/@components'
-import { fetchRepositoriesIfNeeded } from 'scenes/redux-standart/actions/repositories'
+import { fetchRepositoriesIfNeeded } from 'scenes/redux-classic/actions/repositories'
 
 export const RepositoriesListContainer = () => {
   const mapState = useCallback(

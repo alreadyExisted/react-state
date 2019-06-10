@@ -1,22 +1,21 @@
 import {
   createStore,
   createStoreObject,
-  createEvent,
+  createApi,
   createEffect
 } from 'effector'
 import { sleep } from 'utils'
 
-export const incCounter = createEvent('increment counter')
-export const incCounterAsync = createEffect('increment counter async').use(() =>
-  sleep(1000)
-)
-export const decCounter = createEvent('decrement counter')
+export const incCounterAsync = createEffect('increment counter async', {
+  handler: () => sleep(1000)
+})
 
-const counter = createStore(0)
-  .on(incCounter, state => state + 1)
-  .on(decCounter, state => state - 1)
+const counter = createStore(0).on(incCounterAsync.done, state => state + 1)
 
-incCounterAsync.done.watch(() => incCounter())
+export const { incCounter, decCounter } = createApi(counter, {
+  incCounter: state => state + 1,
+  decCounter: state => state - 1
+})
 
 export const counterStore = createStoreObject({
   counter

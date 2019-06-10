@@ -2,7 +2,7 @@ import { Dispatch } from 'redux'
 import { RootStore } from 'store'
 import { api } from 'api'
 import { RepositoryDTO } from 'api/github'
-import { MyThunkDispatch } from 'scenes/redux-standart/store'
+import { MyThunkDispatch } from 'scenes/redux-classic/store'
 
 export const START_FETCH_REPOSITORIES = 'START_FETCH_REPOSITORIES'
 export const SUCCESS_FETCH_REPOSITORIES = 'SUCCESS_FETCH_REPOSITORIES'

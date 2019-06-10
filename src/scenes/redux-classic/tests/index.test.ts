@@ -1,11 +1,11 @@
-import { store, MyThunkDispatch } from 'scenes/redux-standart/store'
+import { store, MyThunkDispatch } from 'scenes/redux-classic/store'
 import {
   incCounter,
   incCounterAsync
-} from 'scenes/redux-standart/actions/counter'
-import { fetchRepositoriesIfNeeded } from 'scenes/redux-standart/actions/repositories'
+} from 'scenes/redux-classic/actions/counter'
+import { fetchRepositoriesIfNeeded } from 'scenes/redux-classic/actions/repositories'
 
-describe('redux-standart', () => {
+describe('redux-classic', () => {
   it('sync counter action', () => {
     expect(store.getState().counter.value).toBe(0)
     store.dispatch(incCounter())

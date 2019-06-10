@@ -4,7 +4,7 @@ import {
   incCounter,
   decCounter,
   incCounterAsync
-} from 'scenes/redux-standart/actions/counter'
+} from 'scenes/redux-classic/actions/counter'
 import { useDispatch, RootStore, useMappedState } from 'store'
 
 export const CounterContainer = () => {

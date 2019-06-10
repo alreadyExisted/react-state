@@ -12,7 +12,7 @@ export const Header = () => (
   <header className={theme.header}>
     <nav>
       <ul className={theme.list}>
-        <Item to="/redux-standart" children="Redux Standart" />
+        <Item to="/redux-classic" children="Redux Classic" />
         <Item to="/redux-handler" children="Redux Handler" />
         <Item to="/redux-observable" children="Redux Observable" />
         <Item to="/redux-saga" children="Redux Saga" />

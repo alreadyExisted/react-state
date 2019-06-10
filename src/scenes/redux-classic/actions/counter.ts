@@ -1,5 +1,5 @@
 import { sleep } from 'utils'
-import { MyThunkDispatch } from 'scenes/redux-standart/store'
+import { MyThunkDispatch } from 'scenes/redux-classic/store'
 
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER'
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER'
