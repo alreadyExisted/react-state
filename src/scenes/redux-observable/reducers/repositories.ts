@@ -4,7 +4,7 @@ import {
   START_FETCH_REPOSITORIES,
   SUCCESS_FETCH_REPOSITORIES,
   FAIL_FETCH_REPOSITORIES
-} from 'scenes/redux-classic/actions/repositories'
+} from 'scenes/redux-observable/actions/repositories'
 
 export const repositoriesReducer = (
   state = {},

@@ -2,7 +2,7 @@ import { Action } from 'redux'
 import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER
-} from 'scenes/redux-classic/actions/counter'
+} from 'scenes/redux-observable/actions/counter'
 import { CounterStore } from 'store'
 
 export const counterReducer = (

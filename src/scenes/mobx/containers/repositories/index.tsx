@@ -3,25 +3,25 @@ import { observer, inject } from 'mobx-react'
 import { RepositoriesList } from 'scenes/@components'
 import { RepositoriesStore } from 'scenes/mobx/containers/repositories/store'
 
-interface StateProps {
-  repositories?: RepositoriesStore
+interface InjectedProps {
+  repositories: RepositoriesStore
 }
 
 @inject('repositories')
 @observer
-export class RepositoriesContainer extends React.Component<StateProps> {
-  constructor(props: StateProps) {
+export class RepositoriesContainer extends React.Component {
+  constructor(props: InjectedProps) {
     super(props)
-    props.repositories!.fetchRepositories()
+    props.repositories.fetchRepositories()
+  }
+
+  get injected() {
+    const { repositories } = this.props as InjectedProps
+    return repositories
   }
 
   render() {
-    const repositories = this.props.repositories!
-    return (
-      <RepositoriesList
-        loading={repositories.loading}
-        items={repositories.items}
-      />
-    )
+    const { items, loading } = this.injected
+    return <RepositoriesList loading={loading} items={items} />
   }
 }
